@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>RYO15542 公式サイト</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* リセット */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  line-height:1.6;
+  background:#d3d3d3; /* 全ページ灰色 */
+  color:#333;
+}
+
+/* ロゴアニメーション */
+#loading {
+  position: fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:#0a7c66;
+  display:flex; justify-content:center; align-items:center;
+  z-index:9999;
+  animation: fadeOutLoading 2.5s forwards;
+}
+#loading img { width:150px; animation: fadeIn 1s ease forwards; }
+@keyframes fadeIn { from {opacity:0; transform:scale(0.8);} to {opacity:1; transform:scale(1);} }
+@keyframes fadeOutLoading { 0% {opacity:1; visibility:visible;} 80% {opacity:1; visibility:visible;} 100% {opacity:0; visibility:hidden;} }
+
+/* ページ本体 */
+#pageContent {
+  opacity:0;
+  animation: showContent 2.5s forwards;
+  animation-delay:2s;
+  background:#d3d3d3; /* 背景灰色 */
+  min-height:100vh;
+}
+
+/* ヘッダー */
+header {
+  background:#0a7c66;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+}
+header h1 { font-size:22px; }
+nav a { color:#fff; text-decoration:none; margin-left:20px; font-weight:500; }
+nav a:hover { opacity:0.8; }
+
+/* スライダー */
+.slider {
+  position: relative;
+  width:100%;
+  max-height:400px;
+  overflow:hidden;
+  background:#d3d3d3; /* スライダー背景も灰色 */
+}
+.slides {
+  display:flex;
+  width:400%; /* 画像4枚の場合 */
+  animation: slideAnimation 16s infinite;
+}
+.slides img {
+  width:100%;
+  flex-shrink:0;
+  display:block;
+}
+
+/* スライダーアニメーション */
+@keyframes slideAnimation {
+  0% { transform: translateX(0%); }
+  20% { transform: translateX(0%); }
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  95% { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+/* セクション */
+section {
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+  background: transparent; /* 背景透明で灰色を見せる */
+}
+h2 { font-size:26px; border-left:5px solid #0a7c66; padding-left:10px; margin-bottom:20px; }
+.box {
+  background:#fff; /* 必要に応じて灰色に変更可能 */
+  padding:20px; margin-bottom:20px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.box:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+
+/* フッター */
+footer { background:#333; color:#fff; text-align:center; padding:25px; margin-top:40px; }
+
+/* アニメーションページ表示 */
+@keyframes showContent { 0% { opacity:0; } 100% { opacity:1; } }
+
+/* レスポンシブ */
+@media(max-width:768px) {
+  header { flex-direction:column; align-items:flex-start; }
+  nav { margin-top:10px; }
+  nav a { margin:5px 10px 0 0; display:inline-block; }
+  section { padding:40px 15px; }
+  .slider { max-height:250px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ロゴ -->
+<div id="loading">
+  <img src="logo.png" alt="ロゴ">
+</div>
+
+<!-- ページ本体 -->
+<div id="pageContent">
+
+<header>
+  <h1>RYO15542</h1>
+  <nav>
+    <a href="#about">自己紹介</a>
+    <a href="#service">サービス</a>
+    <a href="#news">最新情報</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+
+<!-- スライダー -->
+<div class="slider">
+  <div class="slides">
+    <img src="slide1.jpg" alt="スライド1">
+    <img src="slide1.jpg" alt="スライド2">
+    <img src="slide1.jpg" alt="スライド3">
+    <img src="slide1.jpg" alt="スライド4">
+  </div>
+</div>
+
+<section id="about">
+<h2>自己紹介</h2>
+<p>こんにちはRYO15542です。趣味はスノーボード・散歩・100均マニアです。時々記事を更新します。日記や日常あるあるも投稿します。</p>
+</section>
+
+<section id="service">
+<h2>運営サービス</h2>
+<div class="box"><a href="#">RYO15542ブログ</a></div>
+<div class="box"><a href="#">ホームページ</a></div>
+<div class="box"><a href="#">無線マニアの集まり</a></div>
+</section>
+
+<section id="news">
+<h2>最新情報</h2>
+<div class="box">
+<p>最終更新 2025/6/29</p>
+<p>・ペットカメラについて投稿しました</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 バイナリ</p>
+</footer>
+
+</div>
+</body>
+</html>
